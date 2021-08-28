@@ -53,9 +53,9 @@ Router.get("/search", async (req, res) => {
     try {
         const {searchString} = req.body;
         const restaurants = await RestaurantModel.find({name: { $regex: searchString, $options: "i" },});
-         if (!restaurant) return res.status(404).json({ error: `No Restaurant matched with 
+         if (!restaurants) return res.status(404).json({ error: `No Restaurant matched with 
           ${searchString}` });
-        return res.json({restaurant});
+        return res.json({restaurants});
     } catch (error) {
         return res.status(500).json({ error: error.message });
     }
