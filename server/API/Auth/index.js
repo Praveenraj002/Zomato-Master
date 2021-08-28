@@ -32,8 +32,8 @@ Router.post("/signup", async (req, res) => {
 });
 
 /*
-Route   /signup
-des     Signup with email and password
+Route   /signin
+des     Signin with email and password
 Params  none
 Access  Public
 Method  POST
@@ -55,7 +55,7 @@ Route   /google
 des     Google Signin
 Params  none
 Access  Public
-Method  POST
+Method  GET
  */
 Router.get(
   "/google",
@@ -73,7 +73,7 @@ Route   /google/callback
 des     Google Signin Callback
 Params  none
 Access  Public
-Method  POST
+Method  GET
  */
 Router.get(
   "/google/callback",
