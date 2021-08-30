@@ -3,6 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import {RiShoppingBag3Line, RiFootprintLine} from "react-icons/ri";
 import {BiDrink} from "react-icons/bi";
 import {IoNutritionOutline} from "react-icons/io5";
+import classnames from "classnames";
+import classNames from "classnames";
 
 const MobileTabs = () => {
     const [allTypes, setAllTypes] = useState([
@@ -10,25 +12,21 @@ const MobileTabs = () => {
         id: `delivery`,
         icon: <RiShoppingBag3Line/>,
         name:"Delivery",
-        isActive: false,
     },
     {
         id: `dinning`,
         icon: <RiFootprintLine/>,
         name:"Dinning Out",
-        isActive: false,
     },
     {
         id: `night`,
         icon: <BiDrink/>,
         name:"Night Life",
-        isActive: false,
     },
     {
         id: `nutri`,
         icon: <IoNutritionOutline/>,
         name:"Nutrition",
-        isActive: false,
     },
 ]);
     const {type} = useParams();
@@ -51,32 +49,51 @@ const MobileTabs = () => {
 };
 
 const LargeTabs = () => {
+    const [allTypes, setAllTypes] = useState([
+        {
+        id: `delivery`,
+        imageDefault:"https://b.zmtcdn.com/data/o2_assets/246bbd71fbba420d5996452be3024d351616150055.png",
+        imageActive:"https://b.zmtcdn.com/data/o2_assets/c0bb85d3a6347b2ec070a8db694588261616149578.png",
+        name:"Delivery",
+        activeColor: "yellow",
+    },
+    {
+        id: `dinning`,
+        imageDefault:"https://b.zmtcdn.com/data/o2_assets/78d25215ff4c1299578ed36eefd5f39d1616149985.png",
+        imageActive:"https://b.zmtcdn.com/data/o2_assets/30fa0a844f3ba82073e5f78c65c18b371616149662.png",
+        name:"Dinning Out",
+        activeColor: "blue",
+
+    },
+    {
+        id: `night`,
+        imageDefault:"https://b.zmtcdn.com/data/o2_assets/01040767e4943c398e38e3592bb1ba8a1616150142.png",
+        imageActive:"https://b.zmtcdn.com/data/o2_assets/855687dc64a5e06d737dae45b7f6a13b1616149818.png",
+        name:"Night Life",
+        activeColor: "blue",
+
+    },
+    {
+        id: `nutri`,
+        imageDefault:"https://b.zmtcdn.com/data/o2_assets/54cad8274d3c3ec7129e0808a13b27c31616582882.png",
+        imageActive:"https://b.zmtcdn.com/data/o2_assets/0f6dcb1aef93fa03ea3f91f37918f3bc1616649503.png",
+        name:"Nutrition",
+        activeColor: "yellow",
+
+    },
+]);
+const {type} = useParams();
     return <>
     <div className="hidden lg:flex gap-14 container px-20 mx-auto">
-        <div className="flex items-center gap-3">
-            <div className="w-16 h-16 bg-gray-100 p-4 rounded-full">
-                <img src="https://b.zmtcdn.com/data/o2_assets/246bbd71fbba420d5996452be3024d351616150055.png" alt="Delivery" className="w-full h-full"/>
+       
+        {allTypes.map((items) =>( 
+            <Link to={`/${items.id}`}>
+        <div className={classNames("flex items-center gap-3 pb-2 transition duration-700 ease-in-out", {"border-b-2 border-zomato-400" :type === items.id, })}>
+            <div className={`w-16 h-16 bg-${type === items.id ? items.activeColor : "gray" }-100 p-4 rounded-full`}>
+                <img src={type === items.id ? items.imageActive : items.imageDefault} alt="Delivery" className="w-full h-full"/>
             </div>
-            <h3 className="text-xl text-gray-700 font-semibold">Delivery</h3>
-        </div>
-        <div className="flex items-center gap-3">
-            <div className="w-16 h-16 bg-gray-100 p-4 rounded-full">
-                <img src="https://b.zmtcdn.com/data/o2_assets/78d25215ff4c1299578ed36eefd5f39d1616149985.png" alt="Dining Out" className="w-full h-full"/>
-            </div>
-            <h3 className="text-xl text-gray-700 font-semibold">Dining Out</h3>
-        </div>
-        <div className="flex items-center gap-3">
-            <div className="w-16 h-16 bg-gray-100 p-4 rounded-full">
-                <img src="https://b.zmtcdn.com/data/o2_assets/01040767e4943c398e38e3592bb1ba8a1616150142.png" alt="NightLife" className="w-full h-full"/>
-            </div>
-            <h3 className="text-xl text-gray-700 font-semibold">NightLife</h3>
-        </div>
-        <div className="flex items-center gap-3">
-            <div className="w-16 h-16 bg-gray-100 p-4 rounded-full">
-                <img src="https://b.zmtcdn.com/data/o2_assets/54cad8274d3c3ec7129e0808a13b27c31616582882.png" alt="Nutrition" className="w-full h-full"/>
-            </div>
-            <h3 className="text-xl text-gray-700 font-semibold">Nutrition</h3>
-        </div>
+            <h3 className={type=== items.id ? "text-xl text-zomato-400 font-semibold" : "text-xl text-gray-700 font-semibold"}>{items.name}</h3>
+        </div></Link>) )}
     </div>
     </>
 };
