@@ -8,11 +8,12 @@ import { NextArrow,  PrevArrow } from '../CarouselArrow';
 
 const DinningCarousel = () => {
     const settings = {
-        arrows: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 4,
+       dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
         nextArrow: <NextArrow/>,
         prevArrow: <PrevArrow/>,
       };
