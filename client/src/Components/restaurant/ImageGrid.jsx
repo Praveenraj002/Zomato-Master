@@ -6,7 +6,7 @@ const ImageGrid = (props) => {
     <>
       <div className="w-full h-60 md:hidden">
         <img
-          src={props.images.length && props.images[0].location}
+          src={props.images[0]}
           alt="restuarant image"
           className="w-full h-full object-cover rounded-lg "
         />
@@ -14,19 +14,19 @@ const ImageGrid = (props) => {
       <div className="hidden w-full h-96 md:flex gap-1">
         <div className="w-full h-full overflow-hidden">
           <img
-            src={props.images.length && props.images[0].location}
+            src={props.images[0]}
             alt="restuarant image"
             className="w-full h-full object-cover rounded-lg transform transition duration-700 hover:scale-110"
           />
         </div>
         <div className="w-1/4 h-full flex flex-col gap-1 overflow-hidden">
           <img
-            src={props.images.length >= 1 && props.images[1].location}
+            src={props.images[1]}
             alt="restuarant image"
             className="w-full h-2/4 object-cover rounded-lg  transform transition duration-700 hover:scale-110"
           />
           <img
-            src={props.images.length >= 2 && props.images[2].location}
+            src={ props.images[2]}
             alt="restuarant image"
             className="w-full h-2/4 object-cover rounded-lg  transform transition duration-700 hover:scale-110"
           />
@@ -34,7 +34,7 @@ const ImageGrid = (props) => {
         <div className="w-1/4 h-full flex flex-col gap-1 overflow-hidden">
           <div className="w-full h-2/4 relative ">
             <img
-              src={props.images.length >= 3 && props.images[3].location}
+              src={props.images[3]}
               alt="restuarant image"
               className="w-full h-full object-cover rounded-lg "
             />
@@ -45,7 +45,7 @@ const ImageGrid = (props) => {
           </div>
           <div className="w-full h-2/4 relative ">
             <img
-              src={props.images.length >= 4 && props.images[4].location}
+              src={props.images[3]}
               alt="restuarant image"
               className="w-full h-full object-cover rounded-lg "
             />
@@ -54,7 +54,7 @@ const ImageGrid = (props) => {
               <div className="bg-black p-3 rounded-full bg-opacity-50">
                 <AiOutlineCamera />
               </div>
-              <h4 className="">View Gallery</h4>
+              <h4 className="">Add Photos</h4>
             </div>
           </div>
         </div>
