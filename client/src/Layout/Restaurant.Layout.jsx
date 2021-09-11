@@ -11,6 +11,7 @@ import  RestaurantNavbar from '../Components/Navbar/restaurantNavbar';
 import ImageGrid from '../Components/restaurant/ImageGrid';
 import Restaurantinfo from '../Components/restaurant/Restaurantinfo';
 import InfoButtons from '../Components/restaurant/InfoButtons';
+import TabContainer from '../Components/restaurant/Tabs';
 
 const RestaurantLayout = () => {
     return (
@@ -41,6 +42,9 @@ const RestaurantLayout = () => {
                <BiShare/> Share
            </InfoButtons>
 
+        </div>
+        <div className="my-4">
+            <TabContainer/>
         </div>
             </div>
             </>
