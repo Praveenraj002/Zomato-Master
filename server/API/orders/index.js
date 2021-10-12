@@ -12,7 +12,7 @@ Route     /
 Des       Get all orders based on id
 Params    _id
 Access    Public
-Method    GET  
+Method    GET
 */
 Router.get(
   "/:_id",
