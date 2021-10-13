@@ -10,9 +10,10 @@ const MenuCategory = (props) => {
             props.isActive,
         })}
       >
-        <h3 id={props.name} onClick={props.onClickHandler}>
+        {/* <h3 id={props.name} onClick={props.onClickHandler}>
+
           {props.name} ({props.items.length})
-        </h3>
+        </h3> */}
       </div>
     </>
   );
