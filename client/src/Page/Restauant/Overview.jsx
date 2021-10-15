@@ -68,7 +68,8 @@ const Overview = () => {
                         </Link>
                     </div>
                      <div className="flex flex-wrap gap-3">
-                            <MenuCollection menutitle="Menu" pages="3" image="https://b.zmtcdn.com/data/menus/985/19704985/15188bd33f510662418399c9613148cc.jpg"/>
+                            <MenuCollection menutitle="Menu" pages="3" image={["https://b.zmtcdn.com/data/menus/985/19704985/15188bd33f510662418399c9613148cc.jpg",
+                            "https://b.zmtcdn.com/data/menus/985/19704985/15188bd33f510662418399c9613148cc.jpg"]}/>
                         </div>
                         <h4 className="text-lg font-medium my-4">Cuisines</h4>
                         <div className="flex flex-wrap gap-2">
