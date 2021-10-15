@@ -31,10 +31,12 @@ const OrderOnline = () => {
                      <FoodList title="Recommended" 
                      items={[
                          {image:"https://b.zmtcdn.com/data/dish_photos/a67/fa0650eb9d54a2fe3ed5fa81e501ca67.jpg?output-format=webp", price:"220", rating:"3",description:"Succulent bone-in chicken pieces cooked in rich spices and steeped in seeraga samba rice and cooked to perfection! From Kongu Nadu with love"},
+                           {image:"https://b.zmtcdn.com/data/dish_photos/a67/fa0650eb9d54a2fe3ed5fa81e501ca67.jpg?output-format=webp", price:"220", rating:"3",description:"Succulent bone-in chicken pieces cooked in rich spices and steeped in seeraga samba rice and cooked to perfection! From Kongu Nadu with love"}
                          ]}  />
                             <FoodList title="Tandoori" 
                      items={[
                          {image:"https://b.zmtcdn.com/data/dish_photos/a67/fa0650eb9d54a2fe3ed5fa81e501ca67.jpg?output-format=webp", price:"180", rating:"3",description:"Succulent bone-in chicken pieces cooked in rich spices and steeped in seeraga samba rice and cooked to perfection! From Kongu Nadu with love"},
+                          {image:"https://b.zmtcdn.com/data/dish_photos/a67/fa0650eb9d54a2fe3ed5fa81e501ca67.jpg?output-format=webp", price:"180", rating:"3",description:"Succulent bone-in chicken pieces cooked in rich spices and steeped in seeraga samba rice and cooked to perfection! From Kongu Nadu with love"}
                          ]}  />
                      
                     
