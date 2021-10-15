@@ -6,7 +6,6 @@ import {FiSearch} from "react-icons/fi";
 
 //components
 import SignIn from "../Auth/SignIn";
-import UserDropdown from "./UserDropdown";
 import SignUp from "../Auth/SignUp";
 
 
@@ -56,8 +55,6 @@ const LargeNav = ({SignIn, SignUp}) => {
         </div>
     </div>
     </div>
-    
-   
     </>);
 
 };
@@ -66,19 +63,19 @@ const LargeNav = ({SignIn, SignUp}) => {
 
 const Navbar = () => {
     const [openSignin, setOpenSignin] = useState(false);
-    const [openSignup, setOpenSignup] = useState(false);
+  const [openSignup, setOpenSignup] = useState(false);
 
-    const openSignInmodal = () => setOpenSignin (true)
-    const openSignUpmodal = () => setOpenSignup (true)
+  const openSignInmodal = () => setOpenSignin(true);
+  const openSignUpmodal = () => setOpenSignup(true);
+  return (
+    <>
+      <SignIn isOpen={openSignin} setIsOpen={setOpenSignin} />
+      <SignUp isOpen={openSignup} setIsOpen={setOpenSignup} />
 
-    return ( <>
-    <SignIn isOpen={openSignin} setIsOpen={setOpenSignin}/>
-    <SignUp isOpen={openSignup} setIsOpen={setOpenSignup}/>
-
-    <nav className="p-4 flex bg-white shadow-md lg:shadow-none -px-4 items-center">
-          <MobileNav SignIn={[openSignInmodal]} SignUp={[openSignUpmodal]}/>
-          <LargeNav SignIn={[openSignInmodal]} SignUp={[openSignUpmodal]}/>
-    </nav>
+      <nav className="p-4 flex bg-white shadow-md lg:shadow-none w-full items-center">
+        <MobileNav SignIn={openSignInmodal} SignUp={openSignUpmodal} />
+        <LargeNav SignIn={openSignInmodal} SignUp={openSignUpmodal} />
+      </nav>
     </>
    );
 };
