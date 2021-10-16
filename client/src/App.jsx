@@ -1,4 +1,4 @@
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
 
 //HOC
 import HomeLayoutHOC from "./HOC/Home.Hoc";

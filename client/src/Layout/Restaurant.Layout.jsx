@@ -1,4 +1,6 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import {useParams} from "react-router-dom";
+import {useDispatch} from "react-redux";
 import {TiStarFullOutline} from "react-icons/ti";
 import {RiDirectionLine} from "react-icons/ri";
 import {AiOutlineBook} from "react-icons/ai";
@@ -14,21 +16,37 @@ import InfoButtons from '../Components/restaurant/InfoButtons';
 import TabContainer from '../Components/restaurant/Tabs';
 import CartContainer from '../Components/Cart/CartContainer';
 
+//Redux Action
+import {getSpecificRestaurant} from "../Redux/Reducer/restaurant/restaurant.action"
+import {getImage} from "../Redux/Reducer/Image/Image.action"
+
+
 const RestaurantLayout = (props) => {
+    const [restaurant, setRestaurant] = useState({
+        images: [], 
+        name:"", 
+        cusine:"", 
+        address:""});
+    const {id} = useParams();
+    const dispatch = useDispatch();
+
+
+    useEffect(() =>{
+        dispatch(getSpecificRestaurant(id)).then (data => console.log(data.payload))
+    }, []);
+
     return (
         <>
             < RestaurantNavbar/>
         <div className="container mx-auto px-4 lg:px-20">
-            <ImageGrid images={[
-                "https://b.zmtcdn.com/data/pictures/chains/5/19704985/6f198239eb7ed6745899639bd3b8cbcd.jpg",
-        "https://b.zmtcdn.com/data/pictures/chains/5/19704985/6f198239eb7ed6745899639bd3b8cbcd.jpg",
-        "https://b.zmtcdn.com/data/pictures/chains/5/19704985/6f198239eb7ed6745899639bd3b8cbcd.jpg",
-        "https://b.zmtcdn.com/data/pictures/chains/5/19704985/6f198239eb7ed6745899639bd3b8cbcd.jpg",]}/>
+            <ImageGrid images={restaurant.images}/>
         <Restaurantinfo
-        name="Junior Kuppanna" 
-        Restaurantrating="3.8" 
-        deliveryRating="4" 
-        cusine="Biryani, South Indian, North Indian, Tamil, Chinese, Seafood" address="Nungambakkam, Chennai" />
+        name={restaurant?.name} 
+        Restaurantrating={restaurant?.rating || 0}
+        deliveryRating={restaurant?.rating || 0}
+        cusine={restaurant?.cusine} 
+        address={restaurant?.address}
+        />
         <div className="my-4 flex flex-wrap gap-3">
            <InfoButtons isActive>
                <TiStarFullOutline/> Add Review
