@@ -9,6 +9,8 @@ import passport from "passport";
 
 //configs
 import googleAuthConfig from "./config/google.config";
+import routeConfig from "./config/route.config";
+
 
 //microservices Routes
 import Auth from "./API/Auth";
@@ -23,7 +25,6 @@ import MailService from "./API/Mail";
 
 //database Connection
 import ConnectDB from "./database/connection";
-import routeConfig from "./config/route.config";
 
 const zomato = express();
 
